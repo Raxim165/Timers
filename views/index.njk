@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Timers</title>
-    <link rel="icon" type="image/png" href="/clock.png">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timers</title>
+  <link rel="icon" type="image/png" href="/clock.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+  <style>
+  [v-cloak] {
+    display: none;
+  }
+  
+  .mono {
+    font-family: monospace;
+  }
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+  @media (max-width: 600px) {
+    input.uk-input,
+    button.uk-button {
+      width: 100%;
+    }
 
-    <style>
-      [v-cloak] {
-        display: none;
-      }
-      .mono {
-        font-family: monospace;
-      }
-    </style>
-  </head>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    #start-timer {
+      padding: 0.75rem;
+    }
+  }
+</style>
+</head>
   <body>
     [% if user %]
       <section id="app" v-cloak class="uk-container uk-margin-top uk-margin-bottom">
