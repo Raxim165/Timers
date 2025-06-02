@@ -20,8 +20,6 @@ router.post("/login", bodyParser.urlencoded({ extended: false }), async (req, re
 
 router.post("/signup", bodyParser.urlencoded({ extended: false }), async (req, res) => {
   const { username, password } = req.body;
-  if (!username || !password) return res.status(400).send("All fields are required");
-
   const existingUser = await req.db.collection("users").findOne({ username });
   if (existingUser) return res.status(409).send("Username already exists");
 

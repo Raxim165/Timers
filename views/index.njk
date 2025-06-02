@@ -10,7 +10,7 @@
   [v-cloak] {
     display: none;
   }
-  
+
   .mono {
     font-family: monospace;
   }
@@ -93,16 +93,16 @@
 
         <h2>Login</h2>
         <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
-          <p><input type="text" name="username" class="uk-input"></p>
-          <p><input type="password" name="password" class="uk-input"></p>
+          <p><input required type="text" name="username" class="uk-input"></p>
+          <p><input required type="password" name="password" class="uk-input"></p>
           <p><button class="uk-button uk-button-primary">Login</button></p>
         </form>
 
         <h1>OR</h1>
         <h2>Signup</h2>
         <form method="POST" action="/signup" enctype="application/x-www-form-urlencoded">
-          <p><input type="text" name="username" class="uk-input"></p>
-          <p><input type="password" name="password" class="uk-input"></p>
+          <p><input required type="text" name="username" class="uk-input"></p>
+          <p><input required type="password" name="password" class="uk-input"></p>
           <p><button class="uk-button uk-button-primary">Signup</button></p>
         </form>
       </section>
