@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post("/login", bodyParser.urlencoded({ extended: false }), async (req, res) => {
   const { username, password } = req.body;
-  const user = await req.db.collection("users").findOne({ username });
+  const user = await req.db.collection("users-timers").findOne({ username });
 
   if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
     return res.redirect("/?authError=true");
@@ -20,11 +20,11 @@ router.post("/login", bodyParser.urlencoded({ extended: false }), async (req, re
 
 router.post("/signup", bodyParser.urlencoded({ extended: false }), async (req, res) => {
   const { username, password } = req.body;
-  const existingUser = await req.db.collection("users").findOne({ username });
+  const existingUser = await req.db.collection("users-timers").findOne({ username });
   if (existingUser) return res.status(409).send("Username already exists");
 
   const passwordHash = await bcrypt.hash(password, 10);
-  await req.db.collection("users").insertOne({ username, passwordHash });
+  await req.db.collection("users-timers").insertOne({ username, passwordHash });
   res.redirect("/");
 });
 
